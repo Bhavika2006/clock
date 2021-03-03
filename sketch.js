@@ -11,42 +11,53 @@ function draw() {
   var h = hour();
   var s = second();
   var m = minute();
-  
+  translate(400,200)
   angleMode(DEGREES)
+  noFill()
+  strokeWeight(8)
   scAngle = map(s,0,60,0,360)
+  stroke("red")
+  arc(0, 0, 360, 360, 0, scAngle);
+ 
+
   mnAngle = map(m,0,60,0,360)
+  stroke("blue")
+  arc(0, 0, 320, 320, 0, mnAngle);
+  
   hrAngle = map(h%12,0,12,0,360)
+  stroke("green")
+  arc(0, 0, 300, 300, 0, hrAngle);
   
   //drawing second hand 
   push();
-  translate(400,200)
+  
   rotate(scAngle)
   stroke('red')
   strokeWeight(7)
   line(0,0,100,0)
   
-arc(0, 0, 90, 300, 0, scAngle);
+
   
   pop();
   // drawing hour hand 
   push();
-  translate(400,200)
+  
   rotate(mnAngle)
   stroke('blue')
   strokeWeight(7)
-  line(0,0,50,0)
+  line(0,0,80,0)
   
-  arc(0, 0, 280, 280, 0, mnAngle);
+  
   pop();
   //drawing minute hand 
   push();
-  translate(400,200)
+ 
   rotate(hrAngle)
   stroke('green')
   strokeWeight(7)
-  line(0,0,80,0)
+  line(0,0,50,0)
   
-  arc(0, 0, 200, 200, 0, hrAngle);
+ 
   pop();
 
   drawSprites();
